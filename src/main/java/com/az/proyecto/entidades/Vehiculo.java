@@ -3,6 +3,17 @@ package com.az.proyecto.entidades;
 import java.time.LocalDateTime;
 
 public class Vehiculo {
+
+    public Vehiculo(String placas, String color, String marca, String modelo, Double kilometraje, LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
+        this.placas = placas;
+        this.color = color;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.kilometraje = kilometraje;
+        this.fechaIngreso = fechaIngreso;
+        this.fechaSalida = fechaSalida;
+    }
+
     private String placas;
     private String color;
     private String marca;
