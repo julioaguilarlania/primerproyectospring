@@ -4,10 +4,10 @@
 </head>
 <body>
     <table>
-    <tr><td>Placas:</td><td></td></tr>
-    <tr><td>Marca:</td><td></td></tr>
-    <tr><td>Modelo:</td><td></td></tr>
-    <tr><td>Color:</td><td></td></tr>
+    <tr><td>Placas:</td><td>${vehiculo.placas}</td></tr>
+    <tr><td>Marca:</td><td>${vehiculo.marca}</td></tr>
+    <tr><td>Modelo:</td><td>${vehiculo.modelo}</td></tr>
+    <tr><td>Color:</td><td>${ vehiculo.color }</td></tr>
     </table>
 </body>
 </html>

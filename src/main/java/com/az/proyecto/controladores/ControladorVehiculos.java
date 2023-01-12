@@ -1,12 +1,15 @@
 package com.az.proyecto.controladores;
 
 import com.az.proyecto.entidades.BaseVehiculos;
+import com.az.proyecto.entidades.Vehiculo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 
 @Controller
 public class ControladorVehiculos {
@@ -24,7 +27,9 @@ public class ControladorVehiculos {
         LOGGER.debug("buscarVehiculo()");
         ModelAndView mav = new ModelAndView("resultados");
         BaseVehiculos base = new BaseVehiculos();
-        mav.addObject("vehiculo", base.getVehiculoPorPlacas(p));
+        Optional<Vehiculo> v = base.getVehiculoPorPlacas(p);
+        if (v.isPresent())
+            mav.addObject("vehiculo", v.get());
         return mav;
     }
 }
