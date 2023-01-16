@@ -22,7 +22,7 @@
         </div>
         <div>
         <label>Kilometraje:</label>
-        <input type="text" name="kilometraje"/>
+        <input type="number" name="kilometraje"/>
         </div>
         <div>
         <button type="submit">Guardar</button>

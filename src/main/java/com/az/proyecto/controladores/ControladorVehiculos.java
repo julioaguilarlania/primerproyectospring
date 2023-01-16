@@ -14,6 +14,11 @@ import java.util.Optional;
 @Controller
 public class ControladorVehiculos {
 
+    BaseVehiculos base;
+
+    ControladorVehiculos(BaseVehiculos base) {
+        this.base = base;
+    }
     final static Logger LOGGER = LoggerFactory.getLogger(ControladorVehiculos.class);
 
     @RequestMapping("forma_busqueda")
@@ -26,7 +31,6 @@ public class ControladorVehiculos {
     public ModelAndView buscarVehiculo(@RequestParam("placas") String p) {
         LOGGER.debug("buscarVehiculo()");
         ModelAndView mav = new ModelAndView("resultados");
-        BaseVehiculos base = new BaseVehiculos();
         Optional<Vehiculo> v = base.getVehiculoPorPlacas(p);
         if (v.isPresent())
             mav.addObject("vehiculo", v.get());
@@ -49,11 +53,17 @@ public class ControladorVehiculos {
     {
         LOGGER.debug("guardar Vehiculo()");
         Vehiculo v = new Vehiculo(placas, color, marca, modelo, kms, null, null);
-        BaseVehiculos base = new BaseVehiculos();
         base.agregarVehiculo(v);
         ModelAndView mav = new ModelAndView("busqueda");
         mav.addObject("mensaje", "Se guardo el vehiculo");
         LOGGER.trace("Se guardo el vehiculo");
+        /*
+        LOGGER.error();
+        LOGGER.warn()
+        LOGGER.info();
+        LOGGER.debug();
+        LOGGER.trace();
+         */
         return mav;
     }
 }

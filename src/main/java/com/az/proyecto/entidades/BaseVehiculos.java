@@ -1,10 +1,13 @@
 package com.az.proyecto.entidades;
 
+import org.springframework.stereotype.Repository;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class BaseVehiculos {
     Map<String, Vehiculo> vehiculos;
 
