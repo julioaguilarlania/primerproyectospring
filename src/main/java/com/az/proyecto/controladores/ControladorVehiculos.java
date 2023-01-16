@@ -56,10 +56,17 @@ public class ControladorVehiculos {
     {
         LOGGER.debug("guardar Vehiculo()");
         Vehiculo v = new Vehiculo(placas, color, marca, modelo, kms, null, null);
-        servVehiculos.guardar(v);
         ModelAndView mav = new ModelAndView("busqueda");
-        mav.addObject("mensaje", "Se guardo el vehiculo");
-        LOGGER.trace("Se guardo el vehiculo");
+        try {
+            servVehiculos.guardar(v);
+            mav.addObject("mensaje", "Se guardo el vehiculo");
+            LOGGER.trace("Se guardo el vehiculo");
+        } catch(IllegalArgumentException iae) {
+            mav.setViewName("capturaNuevo");
+            mav.addObject("error", iae.getMessage());
+            mav.addObject("vehiculo", v);
+            LOGGER.warn("Error al guardar Vehiculo:", iae);
+        }
         /*
         LOGGER.error();
         LOGGER.warn()

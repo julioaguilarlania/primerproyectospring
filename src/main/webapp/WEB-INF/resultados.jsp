@@ -12,6 +12,7 @@
         <tr><td>Marca:</td><td>${vehiculo.marca}</td></tr>
         <tr><td>Modelo:</td><td>${vehiculo.modelo}</td></tr>
         <tr><td>Color:</td><td>${ vehiculo.color }</td></tr>
+        <tr><td>Kms:</td><td>${ vehiculo.kilometraje }</td></tr>
         </table>
     </c:if>
     <c:if test="${vehiculo == null}">

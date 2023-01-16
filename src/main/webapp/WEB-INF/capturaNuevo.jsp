@@ -1,12 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
     <title>Captura de Vehículo</title>
     </head>
     <body>
+        <c:if test="${error != null}">
+            <div class="error"> ${error} </div>
+        </c:if>
         <form action="guardar">
         <div>
         <label>Placas:</label>
-        <input type="text" name="placas"/>
+        <input type="text" name="placas" value="${vehiculo.placas}"/>
         </div>
         <div>
         <label>Marca:</label>
