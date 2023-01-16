@@ -2,6 +2,7 @@ package com.az.proyecto.controladores;
 
 import com.az.proyecto.entidades.BaseVehiculos;
 import com.az.proyecto.entidades.Vehiculo;
+import com.az.proyecto.servicios.ServicioVehiculos;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,11 @@ import java.util.Optional;
 public class ControladorVehiculos {
 
     BaseVehiculos base;
+    ServicioVehiculos servVehiculos;
 
-    ControladorVehiculos(BaseVehiculos base) {
+    ControladorVehiculos(BaseVehiculos base, ServicioVehiculos sv) {
         this.base = base;
+        this.servVehiculos = sv;
     }
     final static Logger LOGGER = LoggerFactory.getLogger(ControladorVehiculos.class);
 
@@ -53,7 +56,7 @@ public class ControladorVehiculos {
     {
         LOGGER.debug("guardar Vehiculo()");
         Vehiculo v = new Vehiculo(placas, color, marca, modelo, kms, null, null);
-        base.agregarVehiculo(v);
+        servVehiculos.guardar(v);
         ModelAndView mav = new ModelAndView("busqueda");
         mav.addObject("mensaje", "Se guardo el vehiculo");
         LOGGER.trace("Se guardo el vehiculo");
