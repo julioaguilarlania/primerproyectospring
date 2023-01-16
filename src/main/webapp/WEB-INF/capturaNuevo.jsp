@@ -14,19 +14,19 @@
         </div>
         <div>
         <label>Marca:</label>
-        <input type="text" name="marca"/>
+        <input type="text" name="marca" value="${vehiculo.marca}"/>
         </div>
         <div>
         <label>Modelo:</label>
-        <input type="text" name="modelo"/>
+        <input type="text" name="modelo" value="${vehiculo.modelo}"/>
         </div>
         <div>
         <label>Color:</label>
-        <input type="text" name="color"/>
+        <input type="text" name="color" value="${vehiculo.color}"/>
         </div>
         <div>
         <label>Kilometraje:</label>
-        <input type="text" name="kilometraje"/>
+        <input type="text" name="kilometraje" value="${vehiculo.kilometraje}"/>
         </div>
         <div>
         <button type="submit">Guardar</button>
