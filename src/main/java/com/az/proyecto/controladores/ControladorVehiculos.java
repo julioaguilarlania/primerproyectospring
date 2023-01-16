@@ -32,4 +32,28 @@ public class ControladorVehiculos {
             mav.addObject("vehiculo", v.get());
         return mav;
     }
+
+    @RequestMapping("forma_nuevo")
+    public String mostrarFormularioCaptura() {
+        LOGGER.debug("forma Captura()");
+        return "capturaNuevo";
+    }
+
+    @RequestMapping(value="guardar")
+    public ModelAndView guardarNuevo(
+            @RequestParam("placas") String placas,
+            @RequestParam("color") String color,
+            @RequestParam("marca") String marca,
+            @RequestParam("modelo") String modelo,
+            @RequestParam("kilometraje") Double kms)
+    {
+        LOGGER.debug("guardar Vehiculo()");
+        Vehiculo v = new Vehiculo(placas, color, marca, modelo, kms, null, null);
+        BaseVehiculos base = new BaseVehiculos();
+        base.agregarVehiculo(v);
+        ModelAndView mav = new ModelAndView("busqueda");
+        mav.addObject("mensaje", "Se guardo el vehiculo");
+        LOGGER.trace("Se guardo el vehiculo");
+        return mav;
+    }
 }
