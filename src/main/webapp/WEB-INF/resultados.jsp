@@ -7,12 +7,12 @@
 </head>
 <body>
     <c:if test="${vehiculo != null}">
-    <table>
-    <tr><td>Placas:</td><td>${vehiculo.placas}</td></tr>
-    <tr><td>Marca:</td><td>${vehiculo.marca}</td></tr>
-    <tr><td>Modelo:</td><td>${vehiculo.modelo}</td></tr>
-    <tr><td>Color:</td><td>${ vehiculo.color }</td></tr>
-    </table>
+        <table>
+        <tr><td>Placas:</td><td>${vehiculo.placas}</td></tr>
+        <tr><td>Marca:</td><td>${vehiculo.marca}</td></tr>
+        <tr><td>Modelo:</td><td>${vehiculo.modelo}</td></tr>
+        <tr><td>Color:</td><td>${ vehiculo.color }</td></tr>
+        </table>
     </c:if>
     <c:if test="${vehiculo == null}">
         <div>No se encontro vehículo</div>
