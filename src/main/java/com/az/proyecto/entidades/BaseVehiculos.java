@@ -3,6 +3,7 @@ package com.az.proyecto.entidades;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -23,6 +24,9 @@ public class BaseVehiculos {
         this.vehiculos.put(v2.getPlacas(), v2);
     }
 
+    public Collection<Vehiculo> getVehiculos(){
+        return vehiculos.values();
+    }
 
     public Optional<Vehiculo> getVehiculoPorPlacas(String p) {
         Vehiculo v = this.vehiculos.get(p);

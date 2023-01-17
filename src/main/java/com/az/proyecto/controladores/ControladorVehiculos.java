@@ -7,10 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Controller
@@ -28,9 +30,12 @@ public class ControladorVehiculos {
     final static Logger LOGGER = LoggerFactory.getLogger(ControladorVehiculos.class);
 
     @RequestMapping("forma_busqueda")
-    public String mostrarFormularioBusqueda() {
+    public ModelAndView mostrarFormularioBusqueda() {
         LOGGER.debug("forma busqueda()");
-        return "busqueda";
+        ModelAndView mav = new ModelAndView("busqueda");
+        Collection<Vehiculo> vehiculos = base.getVehiculos();
+        mav.addObject("vehiculos",vehiculos);
+        return mav;
     }
 
     @RequestMapping(value = "buscar", params = "placas")
